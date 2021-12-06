@@ -8,24 +8,25 @@ from mainapp.models import Product, ProductCategory
 
 # Create your views here.
 
+def get_basket(user):
+    if user.is_authenticated:
+        return Basket.objects.filter(user=user)
+    return []
+
+
 
 
 def index(request):
 
     products_list = Product.objects.all()[:4]
     context = {
-        'products': products_list
+        'products': products_list,
+        'basket': get_basket(request.user),
     }
 
     return render(request, 'mainapp/index.html', context)
 
-# links_menu = [
-#
-#     {'link_name': 'home', 'name': 'Дом'},
-#     {'link_name': 'modern', 'name': 'Модерн'},
-#     {'link_name': 'office', 'name': 'Офис'},
-#     {'link_name': 'classic', 'name': 'Классика'},
-# ]
+
 
 def products(request, pk=None):
     links_menu = ProductCategory.objects.all()
@@ -40,7 +41,7 @@ def products(request, pk=None):
             'links_menu': links_menu,
             'products': products_list,
             'category': category_item,
-            'basket': Basket.objects.filter(user=request.user)
+            'basket': get_basket(request.user),
         }
 
         return render(request, 'mainapp/products_list.html', context)
@@ -50,15 +51,15 @@ def products(request, pk=None):
         'title': 'Товары',
         'hot_product' : Product.objects.all().first(),
         'same_products': Product.objects.all()[3:5],
-        'basket': Basket.objects.filter(user=request.user)
+        'basket': get_basket(request.user),
     }
     return render(request, 'mainapp/products.html', context)
 
-
-
-
-
-
 def contact(request):
-    return render(request, 'mainapp/contact.html')
+    context = {
+        'basket': get_basket(request.user),
+
+    }
+
+    return render(request, 'mainapp/contact.html', context)
 

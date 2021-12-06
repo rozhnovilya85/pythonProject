@@ -11,3 +11,25 @@ class Basket(models.Model):
     created_at = models.DateTimeField(auto_now_add=True)
 
 
+
+    @property
+    def product_cost(self):
+        return self.product.price * self.quantity
+
+    @property
+    def total_quantity(self):
+        items = Basket.objects.first(user=self.user)
+        _total_quatity = sum(list(map(lambda x: x.quantity, items)))
+        return _total_quatity
+
+    @property
+    def total_cost(self):
+        items = Basket.objects.first(user=self.user)
+        _total_cost = sum(list(map(lambda x: x.product_cost, items)))
+        return _total_cost
+
+
+
+
+
+
