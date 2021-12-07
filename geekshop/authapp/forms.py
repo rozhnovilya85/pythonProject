@@ -28,7 +28,7 @@ class ShopUserRegisterForm(UserCreationForm):
             field.widget.attrs['class'] = 'form-control'
 
     def clean_age(self):
-        data_age = self.changed_data['age']
+        data_age = self.cleaned_data['age']
         if data_age < 18:
             raise forms.ValidationError("Вы слишком маленький!")
         return data_age
@@ -48,7 +48,7 @@ class ShopUserEditForm(UserChangeForm):
                 field.widget = HiddenInput()
 
     def clean_age(self):
-        data_age = self.changed_data['age']
+        data_age = self.cleaned_data['age']
         if data_age < 18:
             raise forms.ValidationError("Вы слишком маленький!")
         return data_age
