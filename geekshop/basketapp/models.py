@@ -18,13 +18,13 @@ class Basket(models.Model):
 
     @property
     def total_quantity(self):
-        items = Basket.objects.first(user=self.user)
+        items = Basket.objects.filter(user=self.user)
         _total_quatity = sum(list(map(lambda x: x.quantity, items)))
         return _total_quatity
 
     @property
     def total_cost(self):
-        items = Basket.objects.first(user=self.user)
+        items = Basket.objects.filter(user=self.user)
         _total_cost = sum(list(map(lambda x: x.product_cost, items)))
         return _total_cost
 
