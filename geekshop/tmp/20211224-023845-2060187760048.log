@@ -1,0 +1,12 @@
+Content-Type: text/plain; charset="utf-8"
+MIME-Version: 1.0
+Content-Transfer-Encoding: 8bit
+Subject: Account verify
+From: django@geekshop.local
+To: django10@geekshop.local
+Date: Thu, 23 Dec 2021 21:38:45 -0000
+Message-ID: <164029552528.13804.997034200079038436@WIN-K3U4OOQLCP5>
+
+Для подтверждения учетной записи django10 на портале http:/localhost:8000/ перейдите по ссылке: 
+D:\Учеба\pythonProject\geekshop/auth/verify/django10@geekshop.local/23cd40f4e652fb150e1e78e2ff3af90a021894fb/
+-------------------------------------------------------------------------------
