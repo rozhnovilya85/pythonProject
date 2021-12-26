@@ -13,6 +13,8 @@ https://docs.djangoproject.com/en/3.2/ref/settings/
 from pathlib import Path
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
+# import social_core.backends.vk
+
 BASE_DIR = Path(__file__).resolve().parent.parent
 
 
@@ -37,8 +39,8 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'social_django',
     'adminapp',
-
     'mainapp',
     'authapp',
     'basketapp',
@@ -156,3 +158,16 @@ EMAIL_USE_SSL = False
 # вариант логирования сообщений почты в виде файлов вместо отправки
 EMAIL_BACKEND = 'django.core.mail.backends.filebased.EmailBackend'
 EMAIL_FILE_PATH = 'tmp'
+
+# 8036578
+# UnhEVupsEO7xYbeDSFiQ
+
+AUTHENTICATION_BACKENDS = (
+    'django.contrib.auth.backends.ModelBackend',
+    'social_core.backends.vk.VKOAuth2',
+)
+
+SOCIAL_AUTH_VK_OAUTH2_KEY = '8036578'
+SOCIAL_AUTH_VK_OAUTH2_SECRET = 'UnhEVupsEO7xYbeDSFiQ'
+
+API_VERSION = 5.131
