@@ -9,11 +9,14 @@ https://docs.djangoproject.com/en/3.2/topics/settings/
 For the full list of settings and their values, see
 https://docs.djangoproject.com/en/3.2/ref/settings/
 """
-
+import os, json
 from pathlib import Path
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
-# import social_core.backends.vk
+
+
+
+
 
 BASE_DIR = Path(__file__).resolve().parent.parent
 
@@ -40,6 +43,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'social_django',
+
     'adminapp',
     'mainapp',
     'authapp',
@@ -170,4 +174,3 @@ AUTHENTICATION_BACKENDS = (
 SOCIAL_AUTH_VK_OAUTH2_KEY = '8036578'
 SOCIAL_AUTH_VK_OAUTH2_SECRET = 'UnhEVupsEO7xYbeDSFiQ'
 
-API_VERSION = 5.131
